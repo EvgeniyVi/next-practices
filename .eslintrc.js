@@ -6,7 +6,13 @@ module.exports = {
     },
     ecmaVersion: 'latest',
   },
-
+  settings: {
+    'import/resolver': {
+      typescript: {
+        project: 'jsconfig.json',
+      },
+    },
+  },
   plugins: ['react'],
   extends: [
     'next/core-web-vitals',
