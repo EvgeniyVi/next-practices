@@ -2,7 +2,7 @@ import Image from 'next/image'
 import './style.scss'
 
 async function getData(id) {
-  const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
     cache: 'no-store',
   })
 
@@ -15,6 +15,7 @@ async function getData(id) {
 }
 
 export async function generateMetadata({ params }) {
+  console.log(params)
   const post = await getData(params.id)
   return {
     title: post.title,

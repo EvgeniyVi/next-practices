@@ -3,7 +3,7 @@ import Image from 'next/image'
 import './style.scss'
 
 async function getData() {
-  const res = await fetch('http://localhost:3000/api/posts', {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
     cache: 'no-store',
   })
 
@@ -16,14 +16,14 @@ async function getData() {
 }
 
 const Blog = async () => {
-  const data = []
+  const data = await getData()
   return (
     <div className="mainContainer">
       {data.map((item) => (
         <Link
-          href={`blog/${item._id}`}
+          href={`blog/${item.id}`}
           className="container__blog"
-          key={item._id}
+          key={item.id}
         >
           <div className="imageContainer">
             <Image
@@ -36,7 +36,7 @@ const Blog = async () => {
           </div>
           <div className="content">
             <h1 className="title">{item.title}</h1>
-            <p className="desc">{item.desc}</p>
+            <p className="desc">{item.body}</p>
           </div>
         </Link>
       ))}
