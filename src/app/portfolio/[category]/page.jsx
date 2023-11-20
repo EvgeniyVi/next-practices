@@ -29,7 +29,7 @@ function Category({ params }) {
           <div className="content">
             <h1 className="title__item">{item.title}</h1>
             <p className="desc">{item.desc}</p>
-            <Button text="See More" url="#" />
+            <Button text="See More" url="#" className="button-redirect" />
           </div>
           <div className="imgContainer">
             <Image
